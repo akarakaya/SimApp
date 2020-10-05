@@ -1,0 +1,24 @@
+{
+
+"nodes":[{"level":0,"upBw":100,"ratePerMips":0.01,"name":"cloud","type":"FOG_DEVICE","mips":44800,"ram":40000,"downBw":10000},
+	{"sensorType":"ECG","name":"s-0","type":"SENSOR","distribution":2,"value":100.0},
+	{"sensorType":"SENSORS","name":"s-1","type":"SENSOR","distribution":2,"value":100.0},
+	{"sensorType":"ECG","name":"s-2","type":"SENSOR","distribution":2,"value":100.0},
+	{"sensorType":"SENSORS","name":"s-3","type":"SENSOR","distribution":2,"value":100.0},
+	{"level":1,"upBw":10000,"ratePerMips":0.0,"name":"f-0","type":"FOG_DEVICE","mips":2800,"ram":4000,"downBw":10000},
+	{"level":2,"upBw":10000,"ratePerMips":0.0,"name":"f-1","type":"FOG_DEVICE","mips":2800,"ram":4000,"downBw":10000},
+	{"level":2,"upBw":10000,"ratePerMips":0.0,"name":"f-2","type":"FOG_DEVICE","mips":2800,"ram":4000,"downBw":10000},
+	{"name":"t-0","type":"ACTUATOR","actuatorType":"DISPLAY"},
+	{"name":"t-1","type":"ACTUATOR","actuatorType":"DISPLAY"}],
+	
+"links":[{"latency":150.0,"destination":"cloud","source":"f-0"},
+	{"latency":150.0,"destination":"f-0","source":"f-1"},
+	{"latency":150.0,"destination":"f-0","source":"f-2"},
+	{"latency":40.0,"destination":"f-1","source":"s-0"},
+	{"latency":40.0,"destination":"f-1","source":"s-1"},
+	{"latency":40.0,"destination":"f-2","source":"s-2"},
+	{"latency":40.0,"destination":"f-2","source":"s-3"},
+	{"latency":45.0,"destination":"t-0","source":"f-1"},
+	{"latency":45.0,"destination":"t-1","source":"f-2"}]
+
+}
